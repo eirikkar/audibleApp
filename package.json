@@ -1,20 +1,31 @@
 {
-  "name": "audible",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "name": "audibleapp",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "en liten app",
+  "author": "Eirik <eirik.sundal@gmail.com>",
+  "main": "./main.js",
+  "build": {
+    "appId": "audible.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
   "scripts": {
     "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . audibleApp --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"audibleApp\"",    
-    "package-linux": "electron-packager . audibleApp --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
-  },
-  "author": "Eirik",
-  "license": "ISC",
-  "dependencies": {
-    "electron": "^4.0.1"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "devDependencies": {
-    "electron-packager": "^13.0.1"
-  }
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eirikkar/audibleApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eirikkar/audibleApp/issues"
+  },
+  "homepage": "https://github.com/eirikkar/audibleApp#readme"
 }

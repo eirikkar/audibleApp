@@ -2,7 +2,6 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-
 const {app, BrowserWindow, Menu} = electron;
 
 let mainWindow;
@@ -12,14 +11,16 @@ app.on('ready', () =>   {
     mainWindow = new BrowserWindow({});
     
     //Load html into window
-    mainWindow.loadURL('https://www.audible.com/cloudplayer?asin=B06XJRFJ2N&ref_=a_ownedbuybox_cloudplayer');
-    
+    mainWindow.loadURL('https://www.audible.com/lib');
+    mainWindow.webContents.on('new-window', (event, e) => {
+        mainWindow.loadURL(e);
+    });
     // .loadURL(url.format({
     //     pathname: path.join(__dirname, 'mainWindow.html'),
     //     protocol:'file',
     //     slashes: true
     // }));
-
+    mainWindow.allowpopups = false;
     // Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
     // Insert menu
